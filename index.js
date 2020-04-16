@@ -305,7 +305,7 @@ function getOlderCars(arr, maxYear) {
   let result = [];
   for(let i = 0; i < arr.length; i++){
     if(arr[i].car_year <= maxYear){
-      result[i] = arr[i];
+      result.push(arr[i]);
     }
   }
 
@@ -330,7 +330,7 @@ function getGermanCars(arr) {
   for(let i = 0; i < arr.length; i++){
     for(let f = 0; f < filter.length; f++){
       if(arr[i].car_make === filter[f]){
-        result[i] = arr[i];
+        result.push(arr[i]);
       }
     }
   }
@@ -351,7 +351,9 @@ function getGermanCars(arr) {
  *         (2) returns the updated value of the `odometer`.
 */
 function carMaker(num) {
-  return {'odometer': num, 'drive': function(distance){
+  return {
+    'odometer': num,
+    'drive': function(distance){
     return this.odometer += distance;
   }}
 }
